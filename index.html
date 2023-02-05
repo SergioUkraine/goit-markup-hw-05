@@ -55,7 +55,18 @@
         <section class="section hero">
           <div class="container">
             <h1>Ефективні рішення для вашого бізнесу</h1>
-            <button class="order-button" type="button">Замовити послугу</button>
+            <button class="order-button" data-modal-open>
+              Замовити послугу
+            </button>
+          </div>
+          <div class="backdrop is-hidden" data-modal>
+            <div class="modal">
+              <button class="modal-close-button" data-modal-close>
+                <svg width="18px" height="18px">
+                  <use href="./images/icons.svg#closex"></use>
+                </svg>
+              </button>
+            </div>
           </div>
         </section>
       </div>
@@ -121,21 +132,36 @@
           <h2>Чим ми займаємося</h2>
           <ul class="occupation-list list">
             <li class="occupation-item">
-              <img src="./images/img1.jpg" alt="пишемо код" width="370" />
+              <div class="occupation-thumb">
+                <img src="./images/img1.jpg" alt="пишемо код" width="370" />
+                <div class="occupation-title-box">
+                  <h3 class="occupation-title">Десктопні додатки</h3>
+                </div>
+              </div>
             </li>
             <li class="occupation-item">
-              <img
-                src="./images/img2.jpg"
-                alt="тестємо на пристроях"
-                width="370"
-              />
+              <div class="occupation-thumb">
+                <img
+                  src="./images/img2.jpg"
+                  alt="тестємо на пристроях"
+                  width="370"
+                />
+                <div class="occupation-title-box">
+                  <h3 class="occupation-title">Мобільні додатки</h3>
+                </div>
+              </div>
             </li>
             <li class="occupation-item">
-              <img
-                src="./images/img3.jpg"
-                alt="розробляємо дизайн"
-                width="370"
-              />
+              <div class="occupation-thumb">
+                <img
+                  src="./images/img3.jpg"
+                  alt="розробляємо дизайн"
+                  width="370"
+                />
+                <div class="occupation-title-box">
+                  <h3 class="occupation-title">Дизайнерські рішення</h3>
+                </div>
+              </div>
             </li>
           </ul>
         </div>

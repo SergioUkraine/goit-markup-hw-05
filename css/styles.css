@@ -27,6 +27,14 @@
     --hero-gradient-color: rgba(47, 48, 58, 0.4);
     --svg-primary-color: #AFB1B8;
     --footer-links-bg-color: rgba(255, 255, 255, 0.1);
+    --portfolio-example-overlay: rgba(33, 150, 243, 0.9);
+    --backdrop-color: rgba(0, 0, 0, 0.2);
+    --occupation-backdrop-color: rgba(47, 48, 58, 0.8);
+
+    /* Animation */
+    --animation-duration: 250ms;
+    --animation-time-function: cubic-bezier(0.4, 0, 0.2, 1);
+    --animation-delay: 0;
 }
 
 body {
@@ -98,6 +106,8 @@ p {
     border-bottom-color: var(--header-border-color);
     border-bottom-style: solid;
     border-bottom-width: 1px;
+
+    background-color: var(--primary-bg-color);
 }
 
 header>.container {
@@ -155,6 +165,11 @@ header>.container {
     padding-top: 32px;
     padding-bottom: 32px;
     fill: var(--primary-text-color);
+
+    transition-property: fill, color;
+    transition-duration: var(--animation-duration);
+    transition-timing-function: var(--animation-time-function);
+    transition-delay: var(--animation-delay);
 }
 
 .contact-link {
@@ -169,6 +184,25 @@ header>.container {
 .contact-link:focus {
     color: var(--accent-color);
     fill: var(--accent-color);
+}
+
+.current {
+    position: relative;
+}
+
+.current::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 0;
+
+    border-bottom-width: 4px;
+    border-bottom-color: var(--accent-color);
+    border-bottom-style: solid;
+    border-radius: 2px;
 }
 
 .envelope-icon,
@@ -196,6 +230,11 @@ header>.container {
 
 .footer-wrap .link {
     font-style: normal;
+
+    transition-property: color;
+    transition-duration: var(--animation-duration);
+    transition-timing-function: var(--animation-time-function);
+    transition-delay: var(--animation-delay);
 }
 
 .footer-wrap .logo,
@@ -327,6 +366,40 @@ header>.container {
     margin-right: 30px;
 }
 
+.occupation-thumb {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    top: 0;
+    left: 0;
+}
+
+.occupation-title-box {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 70px;
+
+    background-color: var(--occupation-backdrop-color);
+}
+
+.occupation-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.14;
+
+    text-transform: uppercase;
+    color: var(--secondary-text-color);
+}
+
 /* Section 4 (Our team) */
 .team img {
     display: block;
@@ -390,6 +463,11 @@ header>.container {
     justify-content: center;
     align-items: center;
     border-radius: 50%;
+
+    transition-property: background-color;
+    transition-duration: var(--animation-duration);
+    transition-timing-function: var(--animation-time-function);
+    transition-delay: var(--animation-delay);
 }
 
 .social-link.footer-links {
@@ -412,6 +490,11 @@ header>.container {
 
 .social-icon {
     fill: var(--svg-primary-color);
+
+    transition-property: fill;
+    transition-duration: var(--animation-duration);
+    transition-timing-function: var(--animation-time-function);
+    transition-delay: var(--animation-delay);
 }
 
 /* Section 5 (Partners) */
@@ -438,6 +521,14 @@ header>.container {
 
 .partners-icon {
     fill: var(--svg-primary-color);
+}
+
+.partners-list-link,
+.partners-icon {
+    transition-property: border-color, fill;
+    transition-duration: var(--animation-duration);
+    transition-timing-function: var(--animation-time-function);
+    transition-delay: var(--animation-delay);
 }
 
 .partners-list-link:hover .partners-icon,
@@ -476,13 +567,18 @@ header>.container {
     font-weight: 500;
     font-size: 16px;
     line-height: 1.62;
-    background: var(--secondary-br-color);
+    background-color: var(--secondary-br-color);
     color: var(--primary-header-color);
+
+    transition-property: background-color, color, box-shadow;
+    transition-duration: var(--animation-duration);
+    transition-timing-function: var(--animation-time-function);
+    transition-delay: var(--animation-delay);
 }
 
 .filter-button:hover,
 .filter-button:focus {
-    background: var(--accent-color);
+    background-color: var(--accent-color);
     color: var(--secondary-text-color);
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
 }
@@ -494,6 +590,11 @@ header>.container {
 
 .example-link {
     display: inherit;
+
+    transition-property: box-shadow;
+    transition-duration: var(--animation-duration);
+    transition-timing-function: var(--animation-time-function);
+    transition-delay: var(--animation-delay);
 }
 
 .example-link:hover,
@@ -528,4 +629,107 @@ header>.container {
 .example-description p {
     font-size: 16px;
     line-height: 1.88;
+}
+
+.example-thumb {
+    position: relative;
+    overflow: hidden;
+}
+
+.example-thumb::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    background-color: var(--portfolio-example-overlay);
+    transform: translateY(100%);
+}
+
+.example-link:hover .example-thumb::before,
+.example-link:focus .example-thumb::before,
+.example-link:hover .example-thumb-text,
+.example-link:focus .example-thumb-text {
+    transform: translateY(0);
+}
+
+.example-thumb-text {
+    position: absolute;
+    top: 0;
+
+    padding-left: 24px;
+    padding-right: 24px;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--secondary-text-color);
+    font-size: 18px;
+    line-height: 1.56;
+    transform: translateY(100%);
+}
+
+
+.example-thumb::before,
+.example-thumb-text {
+    transition-property: transform;
+    transition-duration: var(--animation-duration);
+    transition-timing-function: var(--animation-time-function);
+    transition-delay: var(--animation-delay);
+}
+
+/* Backdrop */
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--backdrop-color);
+
+    transition-property: opacity;
+    transition-duration: var(--animation-duration);
+    transition-timing-function: var(--animation-time-function);
+    transition-delay: var(--animation-delay);
+}
+
+.backdrop.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Modal window */
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 528px;
+    height: 581px;
+
+    background-color: var(--primary-bg-color);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.modal-close-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: transparent;
+    border-width: 1px;
+    border-radius: 50%;
+    border-color: rgba(0, 0, 0, 0.1);
 }
