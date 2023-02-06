@@ -34,7 +34,6 @@
     /* Animation */
     --animation-duration: 250ms;
     --animation-time-function: cubic-bezier(0.4, 0, 0.2, 1);
-    --animation-delay: 0;
 }
 
 body {
@@ -166,7 +165,6 @@ header>.container {
     transition-property: fill, color;
     transition-duration: var(--animation-duration);
     transition-timing-function: var(--animation-time-function);
-    transition-delay: var(--animation-delay);
 }
 
 .contact-link {
@@ -230,7 +228,6 @@ header>.container {
     transition-property: color;
     transition-duration: var(--animation-duration);
     transition-timing-function: var(--animation-time-function);
-    transition-delay: var(--animation-delay);
 }
 
 .footer-wrap .logo,
@@ -459,7 +456,6 @@ header>.container {
     transition-property: background-color;
     transition-duration: var(--animation-duration);
     transition-timing-function: var(--animation-time-function);
-    transition-delay: var(--animation-delay);
 }
 
 .social-link.footer-links {
@@ -486,7 +482,6 @@ header>.container {
     transition-property: fill;
     transition-duration: var(--animation-duration);
     transition-timing-function: var(--animation-time-function);
-    transition-delay: var(--animation-delay);
 }
 
 /* Section 5 (Partners) */
@@ -520,7 +515,6 @@ header>.container {
     transition-property: border-color, fill;
     transition-duration: var(--animation-duration);
     transition-timing-function: var(--animation-time-function);
-    transition-delay: var(--animation-delay);
 }
 
 .partners-list-link:hover .partners-icon,
@@ -565,7 +559,6 @@ header>.container {
     transition-property: background-color, color, box-shadow;
     transition-duration: var(--animation-duration);
     transition-timing-function: var(--animation-time-function);
-    transition-delay: var(--animation-delay);
 }
 
 .filter-button:hover,
@@ -586,7 +579,6 @@ header>.container {
     transition-property: box-shadow;
     transition-duration: var(--animation-duration);
     transition-timing-function: var(--animation-time-function);
-    transition-delay: var(--animation-delay);
 }
 
 .example-link:hover,
@@ -670,7 +662,6 @@ header>.container {
     transition-property: transform;
     transition-duration: var(--animation-duration);
     transition-timing-function: var(--animation-time-function);
-    transition-delay: var(--animation-delay);
 }
 
 /* Backdrop */
@@ -685,7 +676,6 @@ header>.container {
     transition-property: opacity;
     transition-duration: var(--animation-duration);
     transition-timing-function: var(--animation-time-function);
-    transition-delay: var(--animation-delay);
 }
 
 .backdrop.is-hidden {
